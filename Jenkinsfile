@@ -3,15 +3,11 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git branch: 'main', url: 'https://github.com/mangalgirase/sample-node-api.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh '''
+                docker run --rm -v $PWD:/app -w /app node:18 npm install
+                '''
             }
         }
 
