@@ -5,7 +5,7 @@ pipeline {
 
         stage('Clone Code') {
             steps {
-                git 'https://github.com/mangalgirase/sample-node-api.git'
+                git branch: 'main', url: 'https://github.com/mangalgirase/sample-node-api.git'
             }
         }
 
